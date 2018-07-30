@@ -392,7 +392,7 @@ class Trainer(object):
     }
     flags_json_path = os.path.join(FLAGS.train_dir, "model_flags.json")
     if file_io.file_exists(flags_json_path):
-+     existing_flags = json.load(file_io.FileIO(flags_json_path, mode="r"))
+     existing_flags = json.load(file_io.FileIO(flags_json_path, mode="r"))
       if existing_flags != model_flags_dict:
         logging.error("Model flags do not match existing file %s. Please "
                       "delete the file, change --train_dir, or pass flag "
