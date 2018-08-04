@@ -133,7 +133,7 @@ def inference(reader, train_dir, data_pattern, out_file_location, batch_size, to
 
     if FLAGS.output_model_tgz:
       with tarfile.open(FLAGS.output_model_tgz, "w:gz") as tar:
-        for model_file in glob.glob(checkpoint_file + '.*'):
+        for model_file in file_io.get_matching_files(checkpoint_file + '.*'):
           tar.add(model_file, arcname=os.path.basename(model_file))
         tar.add(os.path.join(FLAGS.train_dir, "model_flags.json"),
                 arcname="model_flags.json")
